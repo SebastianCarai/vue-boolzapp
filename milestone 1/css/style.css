@@ -114,15 +114,15 @@ body{
 .search{
     background-color: white;
     padding: 5px 30px;
+    align-items: center;
 }
 .search input{
-    width: 70%;
+    flex-grow: 1;
     background-color: white;
-    border: 1px solid white;
+    border: none;
     margin-left: 10px;
-    font-size: 15px;
+    font-size: 14px;
     padding: 5px;
-    border-radius: 10px;
 }
 
 /* Contacts */
@@ -159,6 +159,34 @@ body{
     flex-grow: 1;
     background-image: url('../../img/mine.jpg');
     overflow-y: auto;
+}
+.messages_container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    padding: 15px 5px 5px 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+.message.received{
+    background-color: white;
+    align-self: flex-start;
+}
+.message.sent{
+    background-color: #d5f9ba;
+    align-self: flex-end;
+}
+.date_time{
+    align-self: flex-end;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 150px;
 }
 
 /* User actions */

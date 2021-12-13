@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+    
+    <div id="root">
+        <div class="webapp_container d_flex">
+            <div class="app_container d_flex">
+
+                <!-- Left column -->
+                <div class="left_col d_flex">
+
+                    <!-- Top bar -->
+                    <div class="bar d_flex">
+                        <div class="top_bar_l_col d_flex">
+                            <img src="../img/avatar_io.jpg" alt="" class="avatar_image">
+                            <span class="font_18 light_bold">Nome Utente</span>
+                        </div>
+                        <div class="top_bar_r_col">
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <!-- End top bar -->
+
+                    <!-- Notifications bar -->
+                    <div class="bar notification_bar d_flex">
+                        <i class="fas fa-bell-slash"></i>
+                        <span class="notification_texts">
+                            <div class="font_18 light_bold">Ricevi notifiche di nuovi messaggi</div>
+                            <div class="font_14 gray_text light_bold underlined_text">Attiva notifiche desktop</div>
+                        </span>
+                    </div>
+                    <!-- End notifications bar -->
+
+                    <!-- Search conversation -->
+                    <div class="serach_conv_bar">
+                        <div class="search d_flex">
+                            <i class="fas fa-search gray_text"></i>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="contactSearch" @keyup="filterContact">
+                        </div>
+                    </div>
+                    <!-- End search conversation -->
+
+                    <!-- Contacts -->
+                    <div class="contacts_container">
+
+                        <div v-for="contact,index in contacts" @click="changeContactChat(index)">
+                            <!-- Single contact -->
+                            <div class="single_contact d_flex" :class="{d_none: contact.visible===false}">
+                                <img :src="'../img/avatar' + contact.avatar + '.jpg'" alt="" class="avatar_image">
+                                <span class="font_18 light_bold"> {{ contact.name }} </span>
+                            </div>
+                            <!-- End single contact -->
+                        </div>
+
+                    </div>
+                    <!-- End contacts -->
+
+                </div>
+                <!-- End Left column -->
+
+
+
+                <!-- Right column -->
+                <div class="right_col d_flex">
+
+                    <!-- Top bar -->
+                    <div class="bar d_flex">
+                        <div class="top_bar_l_col d_flex">
+                            <img :src="'../img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="" class="avatar_image">
+                            <span>
+                                <div class="font_18 light_bold">{{contacts[contactIndex].name}}</div>
+                                <div class="font_14 gray_text light_bold">Ultimo accesso oggi alle</div>
+                            </span>
+                        </div>
+                        <div class="top_bar_r_col">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <!-- End top bar -->
+
+                    <!-- Chats -->
+                    <div class="chats">
+                        <div class="messages_container">
+
+                            <!-- Single message -->
+                            <div v-for="userMessage,index in contacts[contactIndex].messages">
+                                <div class="message" :class="userMessage.status">
+                                    <div class="main_message">
+                                        {{ userMessage.text }}
+                                    </div>
+                                    <div class="date_time gray_text">
+                                        {{ userMessage.date }}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single message -->
+
+                        </div>
+                    </div>
+                    <!-- End chats -->
+
+                    <!-- User actions -->
+                    <div class="user_actions">
+                        <div class="actions">
+                            <i class="far fa-smile gray_text"></i>
+                            <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="userSentNewMessage" v-model="newTextMessage">
+                            <i class="fas fa-microphone gray_text"></i>
+                        </div>
+                    </div>
+                    <!-- End user actions -->
+                    
+                </div>
+                <!-- End right column -->
+
+            </div>
+        </div>  
+    </div>
+
+    <script src="https://unpkg.com/dayjs"></script>
+    <script>
+      dayjs().format()
+    </script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>

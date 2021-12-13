@@ -56,7 +56,7 @@
                     <!-- Contacts -->
                     <div class="contacts_container">
 
-                        <div v-for="contact in contacts">
+                        <div v-for="contact,index in contacts" @click="changeContactChat(index)">
                             <!-- Single contact -->
                             <div class="single_contact d_flex">
                                 <img :src="'../img/avatar' + contact.avatar + '.jpg'" alt="" class="avatar_image">
@@ -79,9 +79,9 @@
                     <!-- Top bar -->
                     <div class="bar d_flex">
                         <div class="top_bar_l_col d_flex">
-                            <img src="../img/avatar_3.jpg" alt="" class="avatar_image">
+                            <img :src="'../img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="" class="avatar_image">
                             <span>
-                                <div class="font_18 light_bold">Samuele</div>
+                                <div class="font_18 light_bold">{{contacts[contactIndex].name}}</div>
                                 <div class="font_14 gray_text light_bold">Ultimo accesso oggi alle</div>
                             </span>
                         </div>
@@ -98,34 +98,14 @@
                         <div class="messages_container">
 
                             <!-- Single message -->
-                            <div class="message received">
-                                <div class="main_message">
-                                    La Marianna va in campagna
-                                </div>
-                                <div class="date_time gray_text">
-                                    28/03/2020 10:10:40
-                                </div>
-                            </div>
-                            <!-- End single message -->
-
-                            <!-- Single message -->
-                            <div class="message sent">
-                                <div class="main_message">
-                                    Sicuro di non aver sbagliato chat?
-                                </div>
-                                <div class="date_time gray_text">
-                                    28/03/2020 10:20:10
-                                </div>
-                            </div>
-                            <!-- End single message -->
-
-                            <!-- Single message -->
-                            <div class="message received">
-                                <div class="main_message">
-                                    Ah scusa!
-                                </div>
-                                <div class="date_time gray_text">
-                                    28/03/2020 16:15:22
+                            <div v-for="userMessage,index in contacts[contactIndex].messages">
+                                <div class="message" :class="userMessage.status">
+                                    <div class="main_message">
+                                        {{ userMessage.text }}
+                                    </div>
+                                    <div class="date_time gray_text">
+                                        {{ userMessage.date }}
+                                    </div>
                                 </div>
                             </div>
                             <!-- End single message -->

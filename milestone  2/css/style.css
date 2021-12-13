@@ -167,28 +167,28 @@ body{
     flex-direction: column;
 }
 .message{
-    display: flex;
-    flex-direction: column;
     max-width: 80%;
     padding: 15px 5px 5px 15px;
     border-radius: 10px;
     margin: 10px 0;
 }
-.message.received{
+.received{
     background-color: white;
-    align-self: flex-start;
+    float: left;
 }
-.message.sent{
+.sent{
     background-color: #d5f9ba;
-    align-self: flex-end;
+    float: right;
 }
 .date_time{
-    align-self: flex-end;
     font-size: 12px;
     margin-top: 5px;
     margin-left: 150px;
+    float: right;
 }
-
+.isActive{
+    background-color: green;
+}
 /* User actions */
 .user_actions{
     padding: 10px 20px;

@@ -141,6 +141,7 @@ body{
 .single_contact{
     padding: 15px 20px;
     cursor: pointer;
+    position: relative;
 }
 .single_contact:hover{
     background-color: #eaeaea;
@@ -158,6 +159,11 @@ body{
 .last_message{
     margin-left: 15px;
     margin-top: 5px;
+}
+.last_message_date{
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
 
@@ -186,6 +192,9 @@ body{
     padding: 15px 5px 5px 15px;
     border-radius: 10px;
     margin: 10px 0;
+}
+.main_message{
+    word-wrap: break-word; 
 }
 .drop_down_icon i{
     position: absolute;
@@ -239,6 +248,7 @@ body{
     margin-left: 150px;
     float: right;
 }
+
 /* User actions */
 .user_actions{
     padding: 10px 20px;

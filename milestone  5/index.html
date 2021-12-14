@@ -62,7 +62,19 @@
                                 <img :src="'../img/avatar' + contact.avatar + '.jpg'" :alt="contact.name" class="avatar_image">
                                 <div>
                                     <span class="font_18 light_bold"> {{ contact.name }} </span>
-                                    <div class="last_message gray_text font_14"> {{ contact.messages[contact.messages.length-1].text }} </div>
+                                    <span class="last_message_date gray_text font_14"> {{ contact.messages[contact.messages.length-1].date }}</span>
+                                    <div 
+                                        class="last_message gray_text font_14"
+                                        v-if="contact.messages[contact.messages.length-1].text.length > 30"
+                                    > 
+                                        {{ contact.messages[contact.messages.length-1].text.substring(0 , 30) + '...'}} 
+                                    </div>
+                                    <div 
+                                        class="last_message gray_text font_14"
+                                        v-else
+                                    > 
+                                    {{ contact.messages[contact.messages.length-1].text }} 
+                                    </div>
                                 </div>
                             </div>
                             <!-- End single contact -->

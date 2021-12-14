@@ -138,6 +138,7 @@ body{
 .single_contact{
     padding: 15px 20px;
     align-items: center;
+    cursor: pointer;
 }
 .single_contact:hover{
     background-color: #eaeaea;
@@ -148,6 +149,9 @@ body{
 }
 .single_contact span{
     margin-left: 10px;
+}
+.single_contact.active_bg{
+    background-color: lightgray;
 }
 
 /* RIGHT GENERAL COL */

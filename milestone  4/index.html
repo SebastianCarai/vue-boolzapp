@@ -58,8 +58,8 @@
 
                         <div v-for="contact,index in contacts" @click="changeContactChat(index)">
                             <!-- Single contact -->
-                            <div class="single_contact d_flex" :class="{d_none: contact.visible===false}">
-                                <img :src="'../img/avatar' + contact.avatar + '.jpg'" alt="" class="avatar_image">
+                            <div class="single_contact d_flex" :class="{d_none: contact.visible===false, active_bg: index===contactIndex}">
+                                <img :src="'../img/avatar' + contact.avatar + '.jpg'" :alt="contact.name" class="avatar_image">
                                 <span class="font_18 light_bold"> {{ contact.name }} </span>
                             </div>
                             <!-- End single contact -->

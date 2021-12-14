@@ -60,7 +60,10 @@
                             <!-- Single contact -->
                             <div class="single_contact d_flex" :class="{d_none: contact.visible===false, active_bg: index===contactIndex}">
                                 <img :src="'../img/avatar' + contact.avatar + '.jpg'" :alt="contact.name" class="avatar_image">
-                                <span class="font_18 light_bold"> {{ contact.name }} </span>
+                                <div>
+                                    <span class="font_18 light_bold"> {{ contact.name }} </span>
+                                    <div class="last_message gray_text font_14"> {{ contact.messages[contact.messages.length-1].text }} </div>
+                                </div>
                             </div>
                             <!-- End single contact -->
                         </div>
@@ -100,6 +103,17 @@
                             <!-- Single message -->
                             <div v-for="userMessage,index in contacts[contactIndex].messages">
                                 <div class="message" :class="userMessage.status">
+                                    <div class="drop_down_icon" @click="appearDropdown(contactIndex, index)">
+                                        <i class="fas fa-angle-down"></i>
+                                    </div>
+                                    <div class="drop_down_menu" :class="{d_block: userMessage.dropDownVisible}">
+                                        <div>
+                                            Message info
+                                        </div>
+                                        <div @click="deleteMessage(contactIndex, index)">
+                                            Delete message
+                                        </div>
+                                    </div>
                                     <div class="main_message">
                                         {{ userMessage.text }}
                                     </div>

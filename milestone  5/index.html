@@ -62,9 +62,13 @@
                                 <img :src="'../img/avatar' + contact.avatar + '.jpg'" :alt="contact.name" class="avatar_image">
                                 <div>
                                     <span class="font_18 light_bold"> {{ contact.name }} </span>
+
+                                    <!-- Printing last message's date and hour only if there is at least 1 message in the conversation -->
                                     <div v-if="contact.messages.length > 0">
                                         <span class="last_message_date gray_text font_14"> {{ contact.messages[contact.messages.length-1].date }}</span>
                                     </div>
+
+                                    <!-- Printing last message only if there is at least 1 message in the conversation -->
                                     <div v-if="contact.messages.length > 0">
                                         <div 
                                         class="last_message gray_text font_14"
@@ -79,6 +83,7 @@
                                         {{ contact.messages[contact.messages.length-1].text }}
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <!-- End single contact -->

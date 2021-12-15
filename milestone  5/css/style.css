@@ -232,7 +232,7 @@ body{
     cursor: pointer;
 }
 .drop_down_menu div:hover{
-    background-color: #eaeaea;
+    color: darkgray;
 }
 .received{
     background-color: white;

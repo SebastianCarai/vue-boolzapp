@@ -109,9 +109,11 @@ const app = new Vue(
             ]            
         },
         methods:{
+            // Change the contact index at click
             changeContactChat: function(clickedIndex){
                 this.contactIndex = clickedIndex;
             },
+            // When the user send a message, after a second, the program answers with an "ok" message
             sendReply: function(){
                 setTimeout(()=>{
                     this.contacts[this.contactIndex].messages.push({
@@ -122,6 +124,7 @@ const app = new Vue(
                     });
                 }, 1000)
             },
+            // When the user sends a message, it get stored in the array of messages with that particular contact
             userSentNewMessage: function(){
                 if (this.newTextMessage.trim().length > 0){
                     this.contacts[this.contactIndex].messages.push({
